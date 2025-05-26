@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
-    "start": "live-server revamp"
+      "dev": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
+      "build": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css",
+      "start": "live-server revamp"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,6 @@
     "tailwindcss": "^4.1.6"
   },
   "dependencies": {
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.0"
   }
 }
