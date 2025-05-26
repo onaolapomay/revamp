@@ -1,0 +1,20 @@
+{
+  "name": "revamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
+    "start": "live-server revamp"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.6"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}
