@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./revamp/output.css",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css",
     "start": "live-server revamp"
   },
   "author": "",
