@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node_modules/.bin/tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
-    "build": "node_modules/.bin/tailwindcss -i ./src/input.css -o ./revamp/output.css",
+    "build": "tailwindcss -i ./src/input.css -o ./revamp/output.css",
     "start": "live-server revamp"
   },
   "author": "",
