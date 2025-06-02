@@ -4,18 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
-    "build": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css",
+    "dev": "tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./revamp/output.css",
     "start": "live-server revamp"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "live-server": "^1.2.0",
-    "tailwindcss": "^4.1.8"
+    "live-server": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.3"
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.8"
   }
 }
