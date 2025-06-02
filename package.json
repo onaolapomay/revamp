@@ -10,12 +10,10 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "autoprefixer": "^10.4.21",
+    "live-server": "^1.2.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.8"
-  },
-  "dependencies": {
-    "live-server": "^1.2.0"
   }
 }
