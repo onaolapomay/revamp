@@ -1,15 +1,19 @@
 {
   "name": "revamp",
   "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./revamp/output.css",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css",
     "start": "live-server revamp"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "tailwindcss": "^4.1.8",
     "autoprefixer": "^10.4.21",
-    "live-server": "^1.2.0",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.10"
+    "postcss": "^8.5.3",
+    "live-server": "^1.2.0"
   }
 }
