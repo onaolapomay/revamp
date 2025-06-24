@@ -2,8 +2,8 @@
   "name": "revamp",
   "version": "1.0.0",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
-    "build": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css",
+    "dev": "tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
+    "build": "node_modules/.bin/tailwindcss -i ./src/input.css -o ./revamp/output.css",
     "start": "live-server revamp"
   },
   "dependencies": {
