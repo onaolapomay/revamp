@@ -2,14 +2,14 @@
   "name": "revamp",
   "version": "1.0.0",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
-    "build": "npx tailwindcss -i ./src/input.css -o ./revamp/output.css",
+    "dev": "tailwindcss -i ./src/input.css -o ./revamp/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./revamp/output.css",
     "start": "live-server revamp"
   },
   "dependencies": {
-    "tailwindcss": "^4.1.8",
     "autoprefixer": "^10.4.21",
+    "live-server": "^1.2.0",
     "postcss": "^8.5.3",
-    "live-server": "^1.2.0"
+    "tailwindcss": "^4.1.10"
   }
 }
