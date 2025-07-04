@@ -17,11 +17,11 @@ if(!images || images.length === 0) return null;
 
 return (
     <div className='bg-gray-100 flex flex-col md:flex-row space-x-32 items-center justify-center'>
-        <div className='flex justify-center sm:justify-center sm:items-center mt-5'>
+        <div className='mt-5 md:mb-0 text-center md:text-left'>
             <p className='font-ultra-expanded text-2xl underline font-[nunito]'>EXPLORE THE COLLECTIONS</p>
         </div>
     <div className='relative w-full max-w-2xl overflow-hidden  cursor-pointer mt-4'>
-         <span className="text-black sm:text-xl md:text-2xl lg:3xl sm:text-center font-[winky_sans]">Revamp Softbit large shoulder bag</span>
+         <span className="block text-black text-center sm:text-xl md:text-2xl font-[winky_sans]">Revamp Softbit large shoulder bag</span>
         <div className='flex transition-transform duration-700 ease-in-out' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
             {images.map((src, idx) => (
                 <div key={idx} className='w-full flex-shrink-0'>
