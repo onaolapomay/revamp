@@ -1,12 +1,6 @@
 import React from 'react'
 
 
-const trends =[
-    { title: 'cardimg',
-       Image: './public/media/trend-report/cardimg.jpg',
-    }
-]
-
 
 const TrendReport = () => {
     return (
