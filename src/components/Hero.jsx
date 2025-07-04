@@ -3,7 +3,7 @@ import backgroundImage from '/background-images/back.jpg'
 
 const Hero = () => {
     return (
-        <div className='w-full h-[200px] md:h-[500px] lg:h-[700px] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className='w-full h-[300px] md:h-[500px] lg:h-[700px] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `url(${backgroundImage})` }}>
             <p className='text-4xl md:text-2xl lg:text-[18rem] pt-8 text-center text-white font-[dancing_script]' style={{ fontStyle: 'normal' }}>REVAMP</p>
             <p className='text-lg pt-28 md:text-6xl lg:text-4xl text-white font-[winky_sans] text-center'>The New Revamp Softbit</p>
 
