@@ -16,10 +16,10 @@ const Carousel =({ images }) => {
 if(!images || images.length === 0) return null;
 
 return (
-    <div className='bg-gray-100 flex flex-col md:flex-row items-center justify-center min-h-screen'>
+    <div className='bg-gray-100 flex flex-col md:flex-row space-x-32 items-center justify-center'>
         <p className='sm:text-center font-ultra-expanded text-2xl p-5 underline font-[nunito]'>EXPLORE THE COLLECTIONS</p>
     <div className='relative w-full max-w-2xl overflow-hidden sm:justify-center  cursor-pointer mt-5 sm:mt-2 md:mt-5 lg:mt-10'>
-         <span className="text-black text-2xl sm:text-xl sm:text-center font-[winky_sans]">Revamp Softbit large shoulder bag</span>
+         <span className="text-black sm:text-xl md:text-2xl lg:3xl sm:text-center font-[winky_sans]">Revamp Softbit large shoulder bag</span>
         <div className='flex transition-transform duration-700 ease-in-out' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
             {images.map((src, idx) => (
                 <div key={idx} className='w-full flex-shrink-0'>
