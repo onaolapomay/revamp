@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import Carousel from './components/Carousel'
 import TrendReport from './components/TrendReport'
+import SecondBanner from './components/SecondBanner.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
