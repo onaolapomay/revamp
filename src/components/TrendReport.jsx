@@ -8,7 +8,7 @@ const TrendReport = () => {
             <div className='mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-24 lg:max-w-6xl lg:px-8'>
                 <h2 className='text-2xl font-bold tracking-tight text-gray-900'>THE TREND REPORT <span className='text-xl font-bold'><sup className='align-super text-xs'>™</sup></span></h2>
 
-                <div className='mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-6'>
+                <div className='mt-6 grid grid-cols-2 gap-x-2 gap-y-3 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-6'>
                     <div className='group relative'>
                         <img src="/media/trend-report/cardimg.jpg" alt="Front of men's Basic Tee in black." className='w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75' />
                     </div>
