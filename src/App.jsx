@@ -6,6 +6,8 @@ import Hero from './components/Hero';
 import Carousel from './components/Carousel';
 import TrendReport from './components/TrendReport';
 import SecondBanner from './components/SecondBanner.jsx';
+import ProductsCarousel from './components/ProductCarousel.jsx';
+
 
   
 function App() {
@@ -24,6 +26,7 @@ function App() {
            '/media/handbags/handbag5.jpg']} />
         <TrendReport />
         <SecondBanner />
+        <ProductsCarousel />
         <Home />
       </main>
     </>
