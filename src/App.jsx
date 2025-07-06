@@ -7,7 +7,7 @@ import Carousel from './components/Carousel';
 import TrendReport from './components/TrendReport';
 import SecondBanner from './components/SecondBanner.jsx';
 import ProductsCarousel from './components/ProductCarousel.jsx';
-
+import ShopByBrand from './components/ShopByBrand.jsx';
 
   
 function App() {
@@ -27,6 +27,7 @@ function App() {
         <TrendReport />
         <SecondBanner />
         <ProductsCarousel />
+        <ShopByBrand />
         <Home />
       </main>
     </>
