@@ -8,6 +8,7 @@ import TrendReport from './components/TrendReport';
 import SecondBanner from './components/SecondBanner.jsx';
 import ProductsCarousel from './components/ProductCarousel.jsx';
 import ShopByBrand from './components/ShopByBrand.jsx';
+import ResponsiveBanner from './components/ResponsiveBanner.jsx';
 
   
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <SecondBanner />
         <ProductsCarousel />
         <ShopByBrand />
+        <ResponsiveBanner />
         <Home />
       </main>
     </>
