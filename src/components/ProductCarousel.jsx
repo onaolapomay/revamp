@@ -19,7 +19,7 @@ const ProductCarousel = () => {
                             <div className='p-4 mt-3 text-center bg-white'>
                                 <h3 className='text-lg font-semibold'>{product.name}</h3>
                                 <p className='text-gray-500'>{product.price}</p>
-                                <button className='mt-4 m-auto px-4 py-2 bg-black text-white font-semibold rounded-lg transition duration-300 opacity-0 group-hover:opacity-100 sm:opacity-100 sm:block hidden'>Add to Cart</button>
+                                <button className='mt-4 m-auto px-4 py-2 bg-black text-white font-semibold rounded-lg block sm:group-hover:opacity-100 transition duration-300 sm:opacity-0'>Add to Cart</button>
                             </div>
                         </div>
                     ))}
