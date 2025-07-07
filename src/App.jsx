@@ -10,6 +10,7 @@ import ProductsCarousel from './components/ProductCarousel.jsx';
 import ShopByBrand from './components/ShopByBrand.jsx';
 import ResponsiveBanner from './components/ResponsiveBanner.jsx';
 import ShopByCategory from './components/ShopByCategory.jsx';
+import ThirdBanner from './components/ThirdBanner.jsx';
 
   
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <ShopByBrand />
         <ResponsiveBanner />
         <ShopByCategory />
+        <ThirdBanner />
         <Home />
       </main>
     </>
