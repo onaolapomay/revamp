@@ -8,7 +8,7 @@ const ShopByCategory = () => {
             <div className='max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-4 mt-10'>
                 <div className='relative cursor-pointer'>
                     <img src="/media/card-images4/dresses.jpg" alt="Big" className='w-full h-full object-cover shadow-lg'/>
-                    <p className='absolute bottom-4 left-4 text-xl sm:text-2xl font-bold text-white'>Dresses</p>
+                    <p className='absolute bottom-4 left-4 text-xl sm:text-2xl font-bold text-red-800'>Dresses</p>
                 </div>
 
                 <div className='lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-4'>
@@ -18,7 +18,7 @@ const ShopByCategory = () => {
                     </div>
 
                     <div className='relative cursor-pointer'>
-                        <p className='absolute bottom-4 left-4 text-xl font-bold text-white'>Top</p>
+                        <p className='absolute bottom-4 left-4 text-xl font-bold text-red-800'>Top</p>
                         <img src="/media/card-images4/top.jpg" alt="2" className='w-full h-70 object-cover shadow'/>
                     </div>
 
@@ -28,7 +28,7 @@ const ShopByCategory = () => {
                     </div>
 
                     <div className='relative cursor-pointer'>
-                        <p className='absolute bottom-4 left-4 text-xl font-bold text-white'>Swim</p>
+                        <p className='absolute bottom-4 left-4 text-xl font-bold text-red-800'>Swim</p>
                         <img src="/media/card-images4/swim.jpg" alt="4" className='w-full h-full object-cover shadow'/>
                     </div>
 
@@ -38,7 +38,7 @@ const ShopByCategory = () => {
                     </div>
 
                     <div className='relative cursor-pointer'>
-                        <p className='absolute bottom-4 left-4 text-xl font-bold text-white'>Accessories</p>
+                        <p className='absolute bottom-4 left-4 text-xl font-bold text-red-800'>Accessories</p>
                         <img src="/media/card-images4/accessories.jpg" alt="6" className='w-full h-70 object-cover shadow'/>
                     </div>
 
