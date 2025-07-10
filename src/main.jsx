@@ -10,6 +10,13 @@ import ShopByBrand from './components/ShopByBrand.jsx'
 import ResponsiveBanner from './components/ResponsiveBanner.jsx'
 import ShopByCategory from './components/ShopByCategory.jsx'
 import ThirdBanner from './components/ThirdBanner.jsx'
+import ShopLatest from './components/ShopLatest.jsx'
+import ShopLatestGrid from './components/ShopLatestGrid.jsx'
+import ProductCards from './components/ProductCards.jsx'
+// import colorProducts from '../data/colorProducts.js'
+
+
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
