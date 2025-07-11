@@ -31,31 +31,33 @@ const ProductCards = ({ product }) => {
 };
 
   return (
-    <div className="rounded-lg border overflow-hidden shadow-sm">
+    <div className="rounded-lg overflow-hidden shadow-sm">
   
-  <div className="relative w-full h-72">
+  <div className="relative w-full h-80">
     <img
       src={imageUrl}
       alt={product.name}
-      className="w-full h-full object-cover"
+      className="w-full h-full"
     />
     
     {product.discount && (
-      <div className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded">
+      <div className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 font-[winky_sans] rounded">
         {product.discount}
       </div>
     )}
   </div>
 
   {/* Product details */}
-  <div className="p-4 space-y-1">
-    <h2 className="text-sm font-semibold">{product.name}</h2>
-    <p className="text-base font-bold text-black">{product.price}</p>
+  <div className="p-1 space-y-1">
+    <h2 className="text-sm font-semibold font-[roboto]">{product.name}</h2>
+    <div className='flex space-x-4'>
+    <p className="text-base font-bold text-black font-[lato]">{product.price}</p>
     {product.oldPrice && (
       <p className="text-sm line-through text-gray-500">{product.oldPrice}</p>
     )}
+    </div>
     {product.message && (
-      <p className="text-xs text-gray-600">{product.message}</p>
+      <p className="text-xs text-red-300 font-[roboto] font-semibold">{product.message}</p>
     )}
     
     {/* Color selection */}

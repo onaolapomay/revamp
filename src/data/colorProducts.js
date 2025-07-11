@@ -42,7 +42,7 @@ const colorProducts = [
             black: '/media/card-images5/card3/black.webp',
             blue: '/media/card-images5/card3/blue.webp',
             red: '/media/card-images5/card3/red.webp',
-            roseGold: '/media/card-images5/card3/roseGold.webp',
+            roseGold: '/media/card-images5/card3/rosegold.webp',
         },
     },
 
@@ -75,7 +75,7 @@ const colorProducts = [
 
     {
         id: 6,
-        name: 'You"re Mine Lace Maxi Dress',
+        name: 'You Are Mine Lace Maxi Dress',
         price: '₦41,900.00',
         oldPrice: '₦83,700.00',
         discount: '50%',
