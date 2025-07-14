@@ -113,7 +113,7 @@ const colorProducts = [
             blue: '/media/card-images5/card8/CelineBlue.webp',
             brown: '/media/card-images5/card8/CelineBrown.webp',
             burgundy: '/media/card-images5/card8/CelineBurgundy.webp',
-            green: '/media/card-images5/card8/CelineGreen.webp',
+            green: '/media/card-images5/card8/CelineLightGreen.webp',
             sage: '/media/card-images5/card8/CelineSage.webp',
             white: '/media/card-images5/card8/CelineWhite.webp',
         },
