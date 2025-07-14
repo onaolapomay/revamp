@@ -32,14 +32,18 @@ const ProductCards = ({ product }) => {
   };
 
   return (
-    <div className="w-full max-w-md rounded-xl mx-auto overflow-hidden shadow-sm">
+    <div className="group relative bg-white w-full max-w-md rounded-xl mx-auto overflow-hidden shadow-sm">
       {/* Main Image + Discount */}
       <div className="relative w-full h-96">
         <img
           src={selectedImage}
           alt={product.name}
-          className="w-full h-full object- transition-all duration-300"
+          className="w-full h-full object-fill transition-all duration-300"
         />
+        <div className='absolute bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-2 cursor-pointer
+         text-sm bg-black text-white rounded font-[roboto] flex sm:hidden md:group-hover:flex'>
+            Quick Add
+        </div>
         {product.discount && (
           <div className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 font-[winky_sans] rounded">
             {product.discount}
