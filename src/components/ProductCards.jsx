@@ -32,7 +32,7 @@ const ProductCards = ({ product }) => {
   };
 
   return (
-    <div className="w-full max-w-xs rounded-xl mx-auto overflow-hidden shadow-sm">
+    <div className="w-full max-w-lg rounded-xl mx-auto overflow-hidden shadow-sm">
       {/* Main Image + Discount */}
       <div className="relative w-full h-80">
         <img
