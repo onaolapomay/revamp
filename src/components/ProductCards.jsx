@@ -32,13 +32,13 @@ const ProductCards = ({ product }) => {
   };
 
   return (
-    <div className="w-full max-w-sm rounded-xl mx-auto overflow-hidden shadow-sm">
+    <div className="w-full max-w-xs rounded-xl mx-auto overflow-hidden shadow-sm">
       {/* Main Image + Discount */}
       <div className="relative w-full h-80">
         <img
           src={selectedImage}
           alt={product.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object- transition-all duration-300"
         />
         {product.discount && (
           <div className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 font-[winky_sans] rounded">
