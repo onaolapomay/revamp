@@ -5,20 +5,33 @@ const ProductModal = ({ product, onClose }) => {
 
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || '');
   const [selectedColor, setSelectedColor] = useState(
-    product.colors ? Object.keys(product.colors)[0] : '')
-
+    product.colors ? Object.keys(product.colors)[0] : ''
+  );
   const [quantity, setQuantity] = useState(1);
-  const imagesList = product.images && product.images.length > 0 ? product.images : product.colors ? Object.values(product.colors) : []
+
+  // Show the image for selected color
+  const selectedImage = product.colors?.[selectedColor];
 
   const handleSizeClick = (size) => {
     setSelectedSize(size);
   };
 
+  const handleColorClick = (color) => {
+    setSelectedColor(color);
+  };
+
   const handleAddToCart = () => {
-    if (!selectedSize) {
-      alert("Please select a size.");
+    if (!selectedSize || !selectedColor) {
+      alert('Please select both size and color.');
       return;
     }
+
+    const cartItem = {
+      ...product,
+      selectedSize,
+      selectedColor,
+      quantity,
+    };
 
     console.log('Added to cart:', cartItem);
     onClose();
@@ -27,7 +40,6 @@ const ProductModal = ({ product, onClose }) => {
   return (
     <div className='fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center'>
       <div className='bg-white w-full max-w-md p-6 rounded-lg shadow-lg relative'>
-
         <button
           className='absolute top-2 right-3 text-gray-600 text-xl'
           onClick={onClose}
@@ -37,24 +49,42 @@ const ProductModal = ({ product, onClose }) => {
 
         <h2 className='text-xl font-semibold mb-2'>{product.name}</h2>
 
-
-        {imagesList.length > 0 ? (
-            <div className='flex gap-3 overflow-x-auto mb-4'>
-            {imagesList.map((img, index) =>(
-            <img
-                key={index}
-                src={img}
-                alt={`${product.name} ${index + 1}`}
-                className='w-full h-60 object-contain mb-4'
-            />
-            ))}
-        </div>
+        {/* Main Image */}
+        {selectedImage ? (
+          <img
+            src={selectedImage}
+            alt={`${product.name} ${selectedColor}`}
+            className='w-full h-60 object-contain mb-4'
+          />
         ) : (
-            <div className='w-full h-32 bg-gray-300 flex items-center justify-center rounded mb-4'>
-                <p className='text-sm text-gray-600'>No images available</p>
-            </div>
+          <div className='w-full h-32 bg-gray-300 flex items-center justify-center rounded mb-4'>
+            <p className='text-sm text-gray-600'>No image available</p>
+          </div>
         )}
-        
+
+        {/* Color Selection */}
+        {product.colors && (
+          <div className='mb-4'>
+            <p className='font-medium'>Select Color:</p>
+            <div className='flex gap-2 mt-2'>
+              {Object.entries(product.colors).map(([colorName, colorImg]) => (
+                <button
+                  key={colorName}
+                  onClick={() => handleColorClick(colorName)}
+                  className={`border-2 rounded p-1 ${
+                    selectedColor === colorName ? 'border-black' : 'border-gray-300'
+                  }`}
+                >
+                  <img
+                    src={colorImg}
+                    alt={colorName}
+                    className='w-10 h-10 object-cover rounded'
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Size selection */}
         <div className='mb-4'>
