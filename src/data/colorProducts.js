@@ -6,6 +6,7 @@ const colorProducts = [
         oldPrice: '₦99,500.00',
         discount: '40%',
         message: '40% OFF EVERYTHING! Use Code: SAVE40',
+        sizes:['S', 'M', 'L', 'XL'],
         colors: {
             black: '/media/card-images5/card1/card1-img1-black.jpg',
             pink: '/media/card-images5/card1/card1-img2-pink.jpg',
@@ -21,6 +22,7 @@ const colorProducts = [
         oldPrice: '₦88,700.00',
         discount: '30%',
         message: '30% OFF EVERYTHING! Use Code: THANKU40',
+        sizes:['S', 'M', 'L', 'XL'],
         colors: {
             black: '/media/card-images5/card2/black.webp',
             chocolate: '/media/card-images5/card2/chocolate.webp',
@@ -38,6 +40,7 @@ const colorProducts = [
         oldPrice: '₦142,850.00',
         discount: '30%',
         message: '30% off Collection! Prices as Marked',
+        sizes:['S', 'M', 'L', 'XL'],
         colors: {
             black: '/media/card-images5/card3/black.webp',
             blue: '/media/card-images5/card3/blue.webp',
@@ -53,6 +56,7 @@ const colorProducts = [
         oldPrice: '₦83,600.00',
         discount: '50%',
         message: 'With code: THANKU50',
+        sizes:['S', 'M', 'L', 'XL'],
         colors: {
             black: '/media/card-images5/card4/black.webp',
             red: '/media/card-images5/card4/red.webp',
@@ -67,6 +71,7 @@ const colorProducts = [
         oldPrice: '₦200,000.00',
         discount: '50%',
         message: 'With code: THANKU50',
+        sizes:['S', 'M', 'L', 'XL'],
         colors: {
             burgundy: '/media/card-images5/card5/burgundy.webp',
             pink: '/media/card-images5/card5/blush.webp',
@@ -80,6 +85,7 @@ const colorProducts = [
         oldPrice: '₦83,700.00',
         discount: '50%',
         message: 'With code: THANKU50',
+        sizes:['S', 'M', 'L', 'XL'],
         images:[
             '/media/card-images5/card6/main.webp',
             '/media/card-images5/card6/mini1.webp',
@@ -94,6 +100,7 @@ const colorProducts = [
         oldPrice: '₦67,000.00',
         discount: '50%',
         message: 'With code: THANKU50',
+        sizes:['S', 'M', 'L', 'XL'],
         colors: {
             white: '/media/card-images5/card7/white.webp',
             brown: '/media/card-images5/card7/brown.webp',
@@ -108,6 +115,7 @@ const colorProducts = [
         oldPrice: '₦67,000.00',
         discount: 'Nova Deals',
         message: 'Nova Deals Starting at ₦5k',
+        sizes:['S', 'M', 'L', 'XL'],
         colors: {
             black: '/media/card-images5/card8/CelineBlack.webp',
             blue: '/media/card-images5/card8/CelineBlue.webp',

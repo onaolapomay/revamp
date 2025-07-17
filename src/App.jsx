@@ -14,7 +14,8 @@ import ThirdBanner from './components/ThirdBanner.jsx';
 import ShopLatest from './components/ShopLatest.jsx';
 import ShopLatestGrid from './components/ShopLatestGrid.jsx';
 import ProductCards from './components/ProductCards.jsx';
-// import colorProducts from './data/colorProducts.js';
+import ProductModal from './components/ProductModal.jsx'
+// import QuickAddModal from './components/QuickAddModal.jsx';
 
   
 function App() {
@@ -41,6 +42,8 @@ function App() {
         <ShopLatest />
         <ShopLatestGrid />
         <ProductCards />
+        <ProductModal />
+        {/* <QuickAddModal /> */}
         <Home />
       </main>
     </>

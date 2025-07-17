@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ProductCards = ({ product }) => {
+const ProductCards = ({ product, setSelectedProduct }) => {
   if (!product) return null;
 
   const colorKeys = product.colors ? Object.keys(product.colors) : [];
@@ -40,10 +40,10 @@ const ProductCards = ({ product }) => {
           alt={product.name}
           className="w-full h-full  transition-all duration-300"
         />
-        <div className='absolute bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-2 cursor-pointer
+        <button onClick={() => setSelectedProduct(product)} className='absolute bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-2 cursor-pointer
          text-sm bg-black text-white rounded font-[roboto] flex sm:hidden md:group-hover:flex'>
             Quick Add
-        </div>
+        </button>
         {product.discount && (
           <div className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 font-[winky_sans] rounded">
             {product.discount}
