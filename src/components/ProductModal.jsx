@@ -1,125 +1,141 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useCart } from './CartContext';
 
-const ProductModal = ({ product, onClose }) => {
-  if (!product) return null;
+const ProductModal = ({ product, onClose, onAddToCart }) => {
+  const [selectedColor, setSelectedColor] = useState('');
+  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedSize, setSelectedSize] = useState('');
+  const { addToCart } = useCart();
 
-  const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || '');
-  const [selectedColor, setSelectedColor] = useState(
-    product.colors ? Object.keys(product.colors)[0] : ''
-  );
-  const [quantity, setQuantity] = useState(1);
-
-  // Show the image for selected color
-  const selectedImage = product.colors?.[selectedColor];
-
-  const handleSizeClick = (size) => {
-    setSelectedSize(size);
-  };
-
-  const handleColorClick = (color) => {
-    setSelectedColor(color);
-  };
+  useEffect(() => {
+    if (product) {
+      if (product.colors) {
+        const firstColorKey = Object.keys(product.colors)[0];
+        setSelectedColor(firstColorKey);
+        setSelectedImage(product.colors[firstColorKey]);
+      } else if (product.images && product.images.length > 0) {
+        setSelectedImage(product.images[0]);
+      }
+      if (product.sizes && product.sizes.length > 0) {
+        setSelectedSize('');
+      }
+    }
+  }, [product]);
 
   const handleAddToCart = () => {
-    if (!selectedSize || !selectedColor) {
-      alert('Please select both size and color.');
+    if (!selectedSize) {
+      alert('Please select a size before adding to cart.');
       return;
     }
 
-    const cartItem = {
-      ...product,
-      selectedSize,
-      selectedColor,
-      quantity,
+    const item = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: selectedImage,
+      color: selectedColor,
+      size: selectedSize,
     };
 
-    console.log('Added to cart:', cartItem);
+    addToCart(item);
+    onAddToCart(item);
+    alert(`${product.name} has been added to your cart.`);
     onClose();
   };
 
+  if (!product) return null;
+
   return (
-    <div className='fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center'>
-      <div className='bg-white w-full max-w-md p-6 rounded-lg shadow-lg relative'>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-6 relative overflow-y-auto max-h-[90vh]">
         <button
-          className='absolute top-2 right-3 text-gray-600 text-xl'
+          className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl font-bold"
           onClick={onClose}
         >
-          ×
+          &times;
         </button>
 
-        <h2 className='text-xl font-semibold mb-2'>{product.name}</h2>
+        <img
+          src={selectedImage}
+          alt={product.name}
+          className="w-full h-80 object-cover rounded-xl mb-4"
+        />
 
-        {/* Main Image */}
-        {selectedImage ? (
-          <img
-            src={selectedImage}
-            alt={`${product.name} ${selectedColor}`}
-            className='w-full h-60 object-contain mb-4'
-          />
-        ) : (
-          <div className='w-full h-32 bg-gray-300 flex items-center justify-center rounded mb-4'>
-            <p className='text-sm text-gray-600'>No image available</p>
-          </div>
-        )}
+        <h2 className="text-xl font-semibold mb-1">{product.name}</h2>
+        <p className="text-lg font-bold text-pink-600">{product.price}</p>
+        <p className="line-through text-sm text-gray-500">{product.oldPrice}</p>
+        <p className="text-xs text-red-500 mb-2">{product.discount}</p>
+        <p className="text-xs text-gray-700 mb-4">{product.message}</p>
 
-        {/* Color Selection */}
+        {/* Color Selector */}
         {product.colors && (
-          <div className='mb-4'>
-            <p className='font-medium'>Select Color:</p>
-            <div className='flex gap-2 mt-2'>
-              {Object.entries(product.colors).map(([colorName, colorImg]) => (
+          <div className="mb-4">
+            <h3 className="text-sm font-medium mb-1">Choose Color:</h3>
+            <div className="flex gap-2 flex-wrap">
+              {Object.entries(product.colors).map(([color, url]) => (
                 <button
-                  key={colorName}
-                  onClick={() => handleColorClick(colorName)}
-                  className={`border-2 rounded p-1 ${
-                    selectedColor === colorName ? 'border-black' : 'border-gray-300'
+                  key={color}
+                  onClick={() => {
+                    setSelectedColor(color);
+                    setSelectedImage(url);
+                  }}
+                  className={`w-10 h-10 rounded-full border-2 ${
+                    selectedColor === color ? 'border-black' : 'border-gray-300'
                   }`}
-                >
-                  <img
-                    src={colorImg}
-                    alt={colorName}
-                    className='w-10 h-10 object-cover rounded'
-                  />
-                </button>
+                  style={{
+                    backgroundImage: `url(${url})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                />
               ))}
             </div>
           </div>
         )}
 
-        {/* Size selection */}
-        <div className='mb-4'>
-          <p className='font-medium'>Select Size:</p>
-          <div className='flex gap-2 mt-2'>
-            {(product.sizes || ['S', 'M', 'L', 'XL']).map((size) => (
-              <button
-                key={size}
-                onClick={() => handleSizeClick(size)}
-                className={`border px-3 py-1 rounded ${
-                  selectedSize === size ? 'bg-black text-white' : ''
-                }`}
-              >
-                {size}
-              </button>
-            ))}
+        {/* Image Selector */}
+        {product.images && product.images.length > 1 && (
+          <div className="mb-4">
+            <h3 className="text-sm font-medium mb-1">Select Image:</h3>
+            <div className="flex gap-2">
+              {product.images.map((imgUrl, index) => (
+                <img
+                  key={index}
+                  src={imgUrl}
+                  alt={`img-${index}`}
+                  onClick={() => setSelectedImage(imgUrl)}
+                  className={`w-16 h-16 object-cover rounded-xl cursor-pointer border ${
+                    selectedImage === imgUrl ? 'border-black' : 'border-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
-        {/* Quantity */}
-        <div className='mb-4'>
-          <p className='font-medium'>Quantity:</p>
-          <input
-            type='number'
-            min='1'
-            value={quantity}
-            onChange={(e) => setQuantity(Number(e.target.value))}
-            className='border px-3 py-1 rounded w-20 mt-2'
-          />
-        </div>
+        {/* Size Selector */}
+        {product.sizes && (
+          <div className="mb-4">
+            <h3 className="text-sm font-medium mb-1">Available Sizes:</h3>
+            <div className="flex gap-2">
+              {product.sizes.map((size) => (
+                <span
+                  key={size}
+                  onClick={() => setSelectedSize(size)}
+                  className={`px-3 py-1 rounded-full text-sm border cursor-pointer ${
+                    selectedSize === size ? 'border-black bg-black text-white' : 'border-gray-400'
+                  }`}
+                >
+                  {size}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
 
-        {/* Add to Cart */}
         <button
           onClick={handleAddToCart}
-          className='bg-black text-white px-4 py-2 rounded'
+          className="mt-4 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
         >
           Add to Cart
         </button>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import colorProducts from '../data/colorProducts';
+// import ProductModal from './ProductModal';
 
 const ProductCards = ({ product, setSelectedProduct }) => {
   if (!product) return null;
