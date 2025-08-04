@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useCart } from './CartContext';
+import { CheckCircle } from 'lucide-react';
 
-const ProductModal = ({ product, onClose, onAddToCart }) => {
+const ProductModal = ({ product, onClose }) => {
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedImage, setSelectedImage] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [showMessage, setShowMessage] = useState(false);
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -16,15 +19,15 @@ const ProductModal = ({ product, onClose, onAddToCart }) => {
       } else if (product.images && product.images.length > 0) {
         setSelectedImage(product.images[0]);
       }
-      if (product.sizes && product.sizes.length > 0) {
-        setSelectedSize('');
-      }
+      setSelectedSize('');
     }
   }, [product]);
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      alert('Please select a size before adding to cart.');
+      setSuccessMessage('Please select a size before adding to cart.');
+      setShowMessage(true);
+      setTimeout(() => setShowMessage(false), 3000);
       return;
     }
 
@@ -38,9 +41,9 @@ const ProductModal = ({ product, onClose, onAddToCart }) => {
     };
 
     addToCart(item);
-    onAddToCart(item);
-    alert(`${product.name} has been added to your cart.`);
-    onClose();
+    setSuccessMessage(`${product.name} has been added to your cart.`);
+    setShowMessage(true);
+    setTimeout(() => setShowMessage(false), 3000);
   };
 
   if (!product) return null;
@@ -48,6 +51,19 @@ const ProductModal = ({ product, onClose, onAddToCart }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-6 relative overflow-y-auto max-h-[90vh]">
+        <div
+          className={`transition-opacity duration-300 mb-4 px-4 py-2 rounded text-sm font-[roboto] flex items-center gap-2 ${
+            showMessage ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          } ${
+            successMessage.includes('added')
+              ? 'bg-green-100 text-green-800 font-semibold'
+              : 'bg-red-100 text-red-700 font-medium'
+          }`}
+        >
+          {successMessage.includes('added') && <CheckCircle size={18} className="text-green-700" />}
+          <span>{successMessage}</span>
+        </div>
+
         <button
           className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl font-bold"
           onClick={onClose}
@@ -67,7 +83,6 @@ const ProductModal = ({ product, onClose, onAddToCart }) => {
         <p className="text-xs text-red-500 mb-2">{product.discount}</p>
         <p className="text-xs text-gray-700 mb-4">{product.message}</p>
 
-        {/* Color Selector */}
         {product.colors && (
           <div className="mb-4">
             <h3 className="text-sm font-medium mb-1">Choose Color:</h3>
@@ -93,7 +108,6 @@ const ProductModal = ({ product, onClose, onAddToCart }) => {
           </div>
         )}
 
-        {/* Image Selector */}
         {product.images && product.images.length > 1 && (
           <div className="mb-4">
             <h3 className="text-sm font-medium mb-1">Select Image:</h3>
@@ -113,11 +127,10 @@ const ProductModal = ({ product, onClose, onAddToCart }) => {
           </div>
         )}
 
-        {/* Size Selector */}
         {product.sizes && (
           <div className="mb-4">
             <h3 className="text-sm font-medium mb-1">Available Sizes:</h3>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               {product.sizes.map((size) => (
                 <span
                   key={size}
