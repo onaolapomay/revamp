@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart } from "./CartContext";
 import { X, Minus, Plus } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CartPanel = ({ isOpen, onClose }) => {
   const { cartItems, setCartItems } = useCart();
@@ -121,9 +122,11 @@ const decreaseQuantity = (targetItem) => {
         </div>
 
         <div className="p-4 border-t">
-          <button className="w-full py-2 bg-blue-800 text-white rounded hover:bg-blue-700">
-            Checkout
-          </button>
+          <Link to="/checkout">
+            <button className="w-full py-2 bg-blue-800 text-white rounded hover:bg-blue-700">
+              Proceed to Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>
