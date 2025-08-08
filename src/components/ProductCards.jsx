@@ -34,7 +34,7 @@ const ProductCards = ({ product, setSelectedProduct }) => {
   };
 
   return (
-    <div className="group relative bg-white w-full max-w-md rounded-xl mx-auto overflow-hidden shadow-sm">
+    <div className="group relative bg-white w-full rounded-xl mx-auto overflow-hidden shadow-sm">
       {/* Main Image + Discount */}
       <div className="relative w-full h-96">
         <img
